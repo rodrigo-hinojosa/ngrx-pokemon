@@ -1,0 +1,47 @@
+<div *ngIf="profileState$ | async as profile">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/perfil">
+                    Mi Pérfil
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                    {{profile?.username | titlecase}}
+                </a>
+            </li>
+        </ol>
+    </nav>
+    <div class="card bg-light mb-3 border-light">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <img [src]="profile?.img" class="card-img" alt="..." />
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="card-title mb-5">
+                        <strong>Usuario: </strong>
+                        <span class="badge badge-pill badge-primary">
+                            {{ profile?.username }}
+                        </span>
+                    </h5>
+                    <p class="card-text">
+                        <strong>Nombre:</strong> {{ profile?.name | titlecase }}
+                        {{ profile?.lastname | titlecase }}
+                    </p>
+                </div>
+                <div class="card-body">
+                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                    {{ profile?.email }}
+                </div>
+                <div class="card-body">
+                    <a routerLink="/pokedex" class="btn btn-lg btn-outline-danger" role="button" aria-pressed="true">Ver mi Pokedex</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <img class="card-img" src="https://cdn3.iconfinder.com/data/icons/pokemons/500/Pokemon_shadom_pokeball_games_-256.png">
+            </div>
+        </div>
+    </div>
+</div>

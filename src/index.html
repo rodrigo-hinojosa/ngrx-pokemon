@@ -1,13 +1,30 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>NgrxMainExample</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <title>NgrxMainExample</title>
+        <base href="/" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
+        <script>
+            (function () {
+                window.app = {
+                    profile: {
+                        username: 'rhinojosa',
+                        name: 'Rodrigo',
+                        lastname: 'Hinojosa',
+                        img: 'https://tvazteca.brightspotcdn.com/dims4/default/15abb91/2147483647/strip/true/crop/1600x950+0+0/resize/968x575!/format/jpg/quality/80/?url=https%3A%2F%2Ftvazteca.brightspotcdn.com%2F74%2F32%2Fd33e44f9938253320676b2f66a81%2Ffrasesepicasdepolarescandalosos-2262833.jpg',
+                        email: 'full.stack@rodrigo-hinojosa.dev'
+                    },
+                    sitePreferences: {
+                        name: 'ngrx-demo',
+                        language: 'es-ES'
+                    }
+                };
+            })();
+        </script>
+    </head>
+    <body>
+        <app-root style="width: 100%;"></app-root>
+    </body>
 </html>

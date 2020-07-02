@@ -1,0 +1,69 @@
+<div *ngIf="pokemonDetailState$ | async as pokemonDetail">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a routerLink="/">
+                    Pokemones
+                </a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="javascript:void(0)">
+                    {{pokemonDetail.pokemon?.name | titlecase}}
+                </a>
+            </li>
+        </ol>
+    </nav>
+    <div class="card bg-light mb-3 border-light mb-5">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img [src]="pokemonDetail.pokemon?.sprites.front_default" class="card-img" alt="..." />
+            </div>
+            <div class="col-md-9">
+                <div class="card-header">
+                    <h4>
+                        # {{pokemonDetail.pokemon?.id}} - {{pokemonDetail.pokemon?.name | titlecase}}
+                    </h4>
+                </div>
+                <div class="card-body">
+                    <h6 class="mb-3">
+                        Tipo:
+                        <span *ngFor="let type of pokemonDetail.pokemon?.types" class="badge badge-pill badge-success mr-2">
+                            {{type.type.name}}
+                        </span>
+                    </h6>
+                    <hr class="my-4">
+                    <h6 class="mb-3">
+                        Estadisticas generales
+                    </h6>
+                    <p class="card-text">
+                        <small>
+                            Altura: {{pokemonDetail.pokemon?.height | pokemonHeight}}
+                        </small>
+                    </p>
+                    <p class="card-text">
+                        <small>
+                            Peso: {{pokemonDetail.pokemon?.weight | pokemonWeight}}
+                        </small>
+                    </p>
+                    <hr class="my-4">
+                    <h6 class="mb-3">
+                        Movimientos básicos
+                    </h6>
+                    <p *ngFor="let ability of pokemonDetail.pokemon?.abilities; index as i;" class="card-text">
+                        <small>
+                            {{ability.ability.name}}
+                        </small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-around">
+        <button (click)="previousOrNext(pokemonDetail.pokemon?.id - 1)" [disabled]="pokemonDetail.pokemon?.id === 1" [class.disabled]="pokemonDetail.pokemon?.id === 1" type="button" class="btn btn-outline-primary btn-lg float-left">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i> Anterior
+        </button>
+        <button (click)="previousOrNext(pokemonDetail.pokemon?.id + 1)" type="button" class="btn btn-outline-primary btn-lg float-right">
+            Siguiente <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
